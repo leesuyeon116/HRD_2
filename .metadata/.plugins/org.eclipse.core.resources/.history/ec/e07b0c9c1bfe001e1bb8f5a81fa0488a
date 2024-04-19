@@ -1,0 +1,28 @@
+function addCheck() {
+	
+	if(frm.id.value.length==0) {
+		alert("교과목 코드가 입력되지 않았습니다.");
+		frm.id.focus();
+		return false;
+	}
+	
+	else if(frm.name.value.length==0) {
+		alert("교과명이 입력되지 않았습니다.");
+		frm.name.focus();
+		return false;
+	}
+	
+	else if(frm.credit.value.length==0) {
+		alert("학점이 입력되지 않았습니다.");
+		frm.credit.focus();
+		return false;
+	}
+
+	else if(frm.lecturer.value.length==0) {
+		alert("담당강사가 입력되지 않았습니다.");
+		frm.lecturer.focus();
+		return false;
+	}
+	
+
+}
