@@ -1,0 +1,31 @@
+<%@page import="DBPKG.Util"%>
+<%@page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
+<% 
+request.setCharacterEncoding("UTF-8");
+String mode = request.getParameter("mode");
+
+try {
+	Connection conn = Util.getConnection();
+	String sql = "";
+	PreparedStatement pstmt = null;
+	
+	switch(mode){
+	case "insert" :
+		break;
+	
+	case "modify" :
+		break;
+		
+	case "delete" :
+		break;
+				
+	}
+}
+catch(Exception e) {
+	e.printStackTrace();
+}
+%>

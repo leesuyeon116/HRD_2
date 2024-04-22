@@ -12,6 +12,7 @@
     <section style="position: fixed; top: 70px; left: 0px; width: 100%; height: 100%; background-color: lightgray">
     	<h2 style="text-align: center;"><b>교과목 추가</b></h2>
 		<form method="post" action="action.jsp" name="frm" style="display: flex; align-items: center; justify-content: center">
+		<input type="hidden" name="mode" value="insert">
 			<table border="1" style="text-align: center;">
 				<tr>
 					<td>과목코드</td>

@@ -1,0 +1,60 @@
+<%@page import="DBPKG.Util"%>
+<%@page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>modify</title>
+</head>
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+
+	<section
+		style="position: fixed; top: 70px; left: 0px; width: 100%; height: 100%; background-color: lightgray">
+		<h2 style="text-align: center;">교과목 수정</h2>
+
+		<form
+			style="display: flex; align-items: center; justify-content: center; text-align: center">
+			<table border="1">
+				<%
+				request.setCharacterEncoding("UTF-8");
+				String id = request.getParameter("id");
+
+				try {
+					Connection conn = Util.getConnection();
+					String sql = "SELECT * FROM course_tbl WHERE id= ?";
+					PreparedStatement pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, id);
+					ResultSet rs = pstmt.executeQuery();
+					rs.next();
+				%>
+				<tr>
+					<td>과목 코드</td>
+					<td><input type="text" name="id" style="width: 100%"
+						value="<%=id%>" readonly></td>
+				</tr>
+				<tr>
+					<td>과목명</td>
+					<td><input type="text" name="name" style="width: 100%"
+						value="<%=rs.getString(2)%>"></td>
+				</tr>
+				<tr>
+					<td>학점</td>
+					<td><input type="text" name="credit" style="width: 100%"
+						value="<%=rs.getString(3)%>"></td>
+				</tr>
+				<%
+				}
+
+				catch (Exception e) {
+				e.printStackTrace();
+				}
+				%>
+			</table>
+		</form>
+	</section>
+	<jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>
